@@ -1,0 +1,244 @@
+/* =========================
+   Reset e básico
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0f111a;
+    color: #fff;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* =========================
+   Header
+========================= */
+header {
+    width: 100%;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    background: rgba(15, 17, 26, 0.95);
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #22d3ee;
+}
+
+/* =========================
+   Seções
+========================= */
+section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section h1,
+section h2 {
+    margin-bottom: 20px;
+    color: #22d3ee;
+}
+
+/* =========================
+   Botões animados
+========================= */
+.btn-hover {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    color: #fff;
+    background: linear-gradient(135deg, #6366f1, #22d3ee);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 8px;
+}
+
+.btn-hover::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-hover:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-hover:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(34, 211, 238, 0.5);
+}
+
+/* =========================
+   Skills
+========================= */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill-card {
+    display: inline-block;
+    margin: 8px;
+    padding: 12px 16px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.05);
+    text-align: center;
+    cursor: default;
+    transition: transform 0.4s, background 0.4s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.skill-card:hover {
+    transform: translateY(-8px) scale(1.1);
+    background-color: rgba(34, 211, 238, 0.2);
+}
+
+/* =========================
+   Projetos
+========================= */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    padding: 0;
+    width: 300px;
+    height: 200px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s, box-shadow 0.4s;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(34, 211, 238, 0.7);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(34, 211, 238, 0.5);
+}
+
+/* =========================
+   Tags de tecnologia
+========================= */
+.tech-tag {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
+}
+
+.tech-tag:hover {
+    background: rgba(34, 211, 238, 0.3);
+    transform: scale(1.1);
+}
+
+/* =========================
+   Fade-in ao rolar
+========================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* =========================
+   Responsivo
+========================= */
+@media (max-width: 768px) {
+    .project-card {
+        width: 90%;
+        height: 180px;
+    }
+}
