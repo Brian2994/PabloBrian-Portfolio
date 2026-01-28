@@ -17,3 +17,37 @@ const appearOnScroll = new IntersectionObserver(function (entries, appearOnScrol
 faders.forEach(fader => {
     appearOnScroll.observe(fader);
 });
+
+// Menu Hambúrguer
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+const menuLinks = navMenu.querySelectorAll('a');
+
+// Abrir / fechar pelo botão
+menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menuToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Fechar ao clicar fora
+document.addEventListener('click', (e) => {
+    const clicouNoMenu = navMenu.contains(e.target);
+    const clicouNoBotao = menuToggle.contains(e.target);
+
+    if (!clicouNoMenu && !clicouNoBotao) {
+        fecharMenu();
+    }
+});
+
+// Fechar ao clicar em um link
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        fecharMenu();
+    });
+});
+
+function fecharMenu() {
+    navMenu.classList.remove('active');
+    menuToggle.classList.remove('active');
+}
